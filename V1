@@ -1,0 +1,43 @@
+===>Install MongoDB 7.0 + UniFi Network Application on Debian 12<===
+
+apt-get install -y curl wget
+
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
+
+echo /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" > /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+apt-get update
+
+apt-get install -y mongodb-org
+
+apt-get update
+
+systemctl start mongod
+
+systemclt enable mongod
+
+===>Install UniFi Network Controller<===
+
+apt-get install -y wget apt-transport-https ca-certificates gnupg
+  
+wget -qO - https://dl.ui.com/unifi/unifi-repo.gpg | tee /usr/share/keyrings/unifi-repo.gpg
+
+echo /etc/apt/sources.list.d/unifi.list
+
+echo "deb [signed-by=/usr/share/keyrings/unifi-repo.gpg] https://www.ui.com/downloads/unifi/debian stable ubiquiti" > /etc/apt/sources.list.d/unifi.list
+
+apt update
+
+apt-get install -y unifi
+
+systemctl start unifi
+
+systemctl enable unifi
+
+===>Check system status for MongoDB 7.0 and UniFi Network Controller<===
+
+service mongod status
+
+service unifi status
