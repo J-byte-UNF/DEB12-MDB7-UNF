@@ -82,7 +82,7 @@ service unifi status
 
 ## Uninstall (quick)
 
-Remove packages and repository entries (example — test before running in production):
+Remove packages and repository entries:
 
 ```
 sudo apt-get remove --purge -y mongodb-org unifi
