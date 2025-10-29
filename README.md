@@ -101,11 +101,3 @@ Save the sanitized commands into `install.sh`, make it executable, and run:
 chmod +x install.sh
 sudo ./install.sh
 ```
-
-## License
-
-Specify a license for this repository (e.g., MIT). If you want, I can add a LICENSE file.
-
----
-
-This README was generated and added by the GitHub Copilot Chat Assistant.
